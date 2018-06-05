@@ -1,8 +1,23 @@
+var footerText = "Footer Text Whaaaaaat??"
+var author = {
+  name: "John Doe",
+  phone: "111-111-1111",
+  email: "email@email.com"
+}
+
+const divStyle = {
+    backgroundColor: 'lightgrey',
+    margin: '0px',
+    padding: '5px',
+    textAlign: 'center',
+};
+
 function App() {
   return (
-    <div>
+    <div className={'boxed'}>
       <Header />
       <Body author={ author } />
+      <FragTest />
       <Footer text={ footerText } />
     </div>
   )
@@ -11,7 +26,7 @@ function App() {
 function Header() {
   const title = "Here is the title you told me to make"
   return (
-    <h3>{title}</h3>
+    <h3 style={divStyle} >{title}</h3>
   )
 }
 
@@ -25,19 +40,26 @@ function Body(props) {
   )
 }
 
-var footerText = "Footer Text Whaaaaaat??"
-var author = {
-  name: "John Doe",
-  phone: "111-111-1111",
-  email: "email@email.com"
-}
-
 function Footer(props) {
   return (
     <div>
-      <h4>{props.text}</h4>
+      <h4 style={divStyle} >{props.text}</h4>
     </div>
   )
+}
+
+function FragTest(props){
+   return <ul><ColorList /></ul>
+}
+
+function ColorList(props){
+    return (
+      <div>
+        <li>Red</li>
+        <li>Yellow</li>
+        <li>Blue</li>
+      </div>
+    )
 }
 
 ReactDOM.render(<App />, document.getElementById('react-container'))
